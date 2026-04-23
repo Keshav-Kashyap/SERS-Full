@@ -82,10 +82,10 @@ function Nav() {
                 <div style={{ width: 28, height: 28, background: "var(--red)", borderRadius: 7, display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <ShieldIcon />
                 </div>
-                SERS<span style={{ color: "var(--red)" }}>+</span>
+                SERS AI <span style={{ color: "var(--red)" }}>+</span>
             </div>
             <ul style={{ display: "flex", alignItems: "center", gap: 32, listStyle: "none", fontSize: "0.84rem", fontWeight: 500, color: "var(--muted2)" }}>
-                {["problem", "how", "features", "solution"].map(id => (
+                {["problem", "solution", "how", "core-engine"].map(id => (
                     <li key={id}><a href={`#${id}`} style={{ color: "inherit", textDecoration: "none", transition: "color 0.2s" }}
                         onMouseEnter={e => e.target.style.color = "var(--ink)"}
                         onMouseLeave={e => e.target.style.color = "var(--muted2)"}>
@@ -127,7 +127,7 @@ function Hero() {
             {/* App Name */}
             <motion.div initial="hidden" animate="visible" variants={fadeUp} custom={0.2}
                 className="fraunces" style={{ fontSize: "clamp(3.5rem, 9vw, 7rem)", fontWeight: 700, lineHeight: 1, letterSpacing: "-0.04em", position: "relative", zIndex: 1, marginBottom: 8 }}>
-                SERS<sup style={{ fontSize: "0.4em", verticalAlign: "super", color: "var(--red)", fontWeight: 300 }}>+</sup>
+                SERS AI <sup style={{ fontSize: "0.4em", verticalAlign: "super", color: "var(--red)", fontWeight: 300 }}>+</sup>
             </motion.div>
 
             <motion.div initial="hidden" animate="visible" variants={fadeUp} custom={0.3}
@@ -138,7 +138,7 @@ function Hero() {
             <motion.h1 initial="hidden" animate="visible" variants={fadeUp} custom={0.35}
                 className="fraunces" style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.4rem)", fontWeight: 300, lineHeight: 1.45, letterSpacing: "-0.02em", color: "var(--ink2)", maxWidth: 680, margin: "0 auto 20px", position: "relative", zIndex: 1 }}>
                 Thousands of accidents happen daily.<br />
-                <em style={{ fontStyle: "italic", color: "var(--red)" }}>What if we could predict them first?</em>
+                <em style={{ fontStyle: "italic", color: "var(--red)" }}>From reaction to prediction - saving lives before impact.</em>
             </motion.h1>
 
             <motion.p initial="hidden" animate="visible" variants={fadeUp} custom={0.45}
@@ -317,6 +317,74 @@ function HowItWorks() {
     );
 }
 
+// ── CORE PREDICTION ENGINE ──
+function CorePredictionEngine() {
+    const inputItems = [
+        "Location (GPS-based zone risk)",
+        "Speed vs speed limit",
+        "Weather (rain / fog / visibility)",
+        "Traffic density",
+        "Time of day and rush hour",
+        "Road condition",
+        "Previous accident data",
+        "Vehicle condition",
+    ];
+
+    const outputItems = [
+        "Risk Level: Low / Medium / High",
+        "Risk Probability: 0-100%",
+        "Real-time alerts generated",
+    ];
+
+    return (
+        <section id="core-engine" style={{ background: "var(--bg)" }}>
+            <div style={{ maxWidth: 1120, margin: "0 auto", padding: "100px 40px" }}>
+                <div style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--muted)", marginBottom: 16, display: "flex", alignItems: "center", gap: 10 }}>
+                    <span style={{ width: 18, height: 1, background: "var(--border-mid)", display: "inline-block" }} />Core Prediction Engine
+                </div>
+                <h2 className="fraunces" style={{ fontSize: "clamp(2rem, 4vw, 2.8rem)", fontWeight: 500, lineHeight: 1.15, letterSpacing: "-0.03em" }}>
+                    How Our AI Predicts Risk
+                </h2>
+                <p style={{ color: "var(--muted)", maxWidth: 760, marginTop: 12, fontSize: "0.95rem", lineHeight: 1.75 }}>
+                    Real-time data is collected from multiple sources, and each driving context is evaluated against key parameters to generate risk decisions in milliseconds.
+                </p>
+
+                <Reveal>
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16, marginTop: 42 }}>
+                        <motion.div whileHover={{ y: -3, boxShadow: "0 8px 26px rgba(26,92,246,0.12)" }} style={{ background: "var(--card)", border: "1px solid var(--blue-border)", borderRadius: 16, padding: "24px 22px", transition: "all 0.25s" }}>
+                            <div style={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--blue)", marginBottom: 12 }}>Inputs</div>
+                            <ul style={{ display: "grid", gap: 7, paddingLeft: 18, color: "var(--ink2)", fontSize: "0.84rem", lineHeight: 1.6 }}>
+                                {inputItems.map((item, i) => <li key={i}>{item}</li>)}
+                            </ul>
+                        </motion.div>
+
+                        <motion.div whileHover={{ y: -3, boxShadow: "0 10px 30px rgba(214,58,30,0.15)" }} style={{ background: "linear-gradient(160deg, #fff9f8 0%, #ffffff 70%)", border: "1px solid var(--red-border)", borderRadius: 16, padding: "24px 22px", transition: "all 0.25s", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center" }}>
+                            <div style={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--red)", marginBottom: 14 }}>AI Model</div>
+                            <div style={{ width: 82, height: 82, borderRadius: 20, background: "var(--red-soft)", border: "1px solid var(--red-border)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 14, boxShadow: "0 0 0 6px rgba(214,58,30,0.08)" }}>
+                                <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M12 4L19 8V16L12 20L5 16V8L12 4Z" stroke="#d63a1e" strokeWidth="1.5" /><path d="M8 10L12 12.5L16 10M8 14L12 16.5L16 14" stroke="#d63a1e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                            </div>
+                            <h3 className="fraunces" style={{ fontSize: "1.2rem", fontWeight: 500, color: "var(--ink)" }}>AI Engine (Random Forest)</h3>
+                            <p style={{ marginTop: 8, fontSize: "0.84rem", color: "var(--muted2)", lineHeight: 1.65 }}>
+                                A Scikit-learn Random Forest model analyzes learned patterns, where each factor contributes to a dynamic risk score.
+                            </p>
+                        </motion.div>
+
+                        <motion.div whileHover={{ y: -3, boxShadow: "0 8px 26px rgba(26,138,74,0.12)" }} style={{ background: "var(--card)", border: "1px solid var(--green-border)", borderRadius: 16, padding: "24px 22px", transition: "all 0.25s" }}>
+                            <div style={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--green)", marginBottom: 12 }}>Output</div>
+                            <ul style={{ display: "grid", gap: 10, paddingLeft: 18, color: "var(--ink2)", fontSize: "0.88rem", lineHeight: 1.65 }}>
+                                {outputItems.map((item, i) => <li key={i}>{item}</li>)}
+                            </ul>
+                            <div style={{ marginTop: 16, padding: "12px 14px", borderRadius: 10, background: "var(--green-soft)", border: "1px solid var(--green-border)", fontSize: "0.8rem", fontWeight: 600, color: "var(--green)" }}>
+                                Alerts are generated continuously during the live drive.
+                            </div>
+                        </motion.div>
+                    </div>
+                </Reveal>
+            </div>
+        </section>
+    );
+}
+
 // ── DASHBOARD MOCKUP ──
 function Dashboard() {
     const risks = [
@@ -368,7 +436,7 @@ function Dashboard() {
                     </div>
                 </div>
                 <div style={{ display: "flex", borderTop: "1px solid var(--border)", marginTop: 18 }}>
-                    {[{ num: "2.1s", label: "Alert Latency", color: "var(--blue)" }, { num: "94.7%", label: "Accuracy", color: "var(--green)" }, { num: "3 Live", label: "Incidents", color: "var(--red)" }].map((ds, i) => (
+                    {[{ num: "2.1s", label: "Alert Latency", color: "var(--blue)" }, { num: "99.5%", label: "Accuracy", color: "var(--green)" }, { num: "3 Live", label: "Incidents", color: "var(--red)" }].map((ds, i) => (
                         <div key={i} style={{ flex: 1, textAlign: "center", padding: "16px 12px", borderRight: i < 2 ? "1px solid var(--border)" : "none" }}>
                             <div className="fraunces" style={{ fontSize: "1.4rem", fontWeight: 500, letterSpacing: "-0.02em", lineHeight: 1, color: ds.color }}>{ds.num}</div>
                             <div style={{ fontSize: "0.68rem", color: "var(--muted)", textTransform: "uppercase", letterSpacing: "0.08em", marginTop: 4 }}>{ds.label}</div>
@@ -421,46 +489,6 @@ function Solution() {
     );
 }
 
-// ── AI FEATURES ──
-const featCards = [
-    { bg: "var(--blue-soft)", border: "var(--blue-border)", title: "Risk Zone Prediction", text: "ML models trained on millions of accident data points identify high-probability crash zones before any human notices a pattern.", pill: "Predictive ML" },
-    { bg: "var(--green-soft)", border: "var(--green-border)", title: "Behavioral Detection", text: "Computer vision tracks lane weaving, tailgating, sudden braking, and driver fatigue — flagging dangerous behavior in real time.", pill: "Computer Vision" },
-    { bg: "var(--red-soft)", border: "var(--red-border)", title: "Autonomous Decision Logic", text: "A multi-variable decision engine evaluates risk across dozens of factors simultaneously and triggers alerts or dispatches in under 2 seconds.", pill: "Decision AI" },
-    { bg: "var(--amber-soft)", border: "rgba(180,83,9,0.15)", title: "Sensor Fusion Engine", text: "Integrates IoT sensors, CCTV, vehicle telemetry, weather APIs, and GPS into a single unified intelligence stream.", pill: "IoT Integration" },
-    { bg: "var(--blue-soft)", border: "var(--blue-border)", title: "Adaptive Learning", text: "The model continuously retrains on new incident data — improving prediction accuracy with every event, alert, and outcome.", pill: "Continuous Learning" },
-    { bg: "var(--green-soft)", border: "var(--green-border)", title: "Emergency Coordination", text: "Seamless API integration with police dispatch, hospitals, and traffic management — one event triggers the entire response chain automatically.", pill: "Systems Integration" },
-];
-
-function Features() {
-    return (
-        <section id="features" style={{ background: "var(--bg)" }}>
-            <div style={{ maxWidth: 1120, margin: "0 auto", padding: "100px 40px" }}>
-                <div style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--muted)", marginBottom: 16, display: "flex", alignItems: "center", gap: 10 }}>
-                    <span style={{ width: 18, height: 1, background: "var(--border-mid)", display: "inline-block" }} />Intelligence Layer
-                </div>
-                <h2 className="fraunces" style={{ fontSize: "clamp(2rem, 4vw, 2.8rem)", fontWeight: 500, lineHeight: 1.15, letterSpacing: "-0.03em" }}>
-                    Not an app.<br />An <em style={{ fontStyle: "italic", color: "var(--blue)" }}>AI brain</em> for vehicles.
-                </h2>
-                <motion.div variants={stagger} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                    style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, marginTop: 56 }}>
-                    {featCards.map((c, i) => (
-                        <motion.div key={i} variants={staggerItem}
-                            whileHover={{ y: -3, boxShadow: "0 6px 32px rgba(0,0,0,0.08)", borderColor: "var(--border-mid)" }}
-                            style={{ background: "var(--card)", border: "1px solid var(--border)", borderRadius: 14, padding: "30px 26px", transition: "all 0.25s", position: "relative", overflow: "hidden" }}>
-                            <div style={{ width: 44, height: 44, borderRadius: 12, background: c.bg, border: `1px solid ${c.border}`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 18 }}>
-                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="7" stroke="#1a5cf6" strokeWidth="1.4" strokeDasharray="3 2" /><circle cx="11" cy="11" r="3" stroke="#1a5cf6" strokeWidth="1.3" /><circle cx="11" cy="11" r="1.2" fill="#1a5cf6" /></svg>
-                            </div>
-                            <h3 className="fraunces" style={{ fontSize: "1rem", fontWeight: 500, letterSpacing: "-0.01em", marginBottom: 8 }}>{c.title}</h3>
-                            <p style={{ fontSize: "0.83rem", color: "var(--muted)", lineHeight: 1.7 }}>{c.text}</p>
-                            <div style={{ display: "inline-block", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", padding: "3px 10px", borderRadius: 100, marginTop: 14, background: "var(--surface)", color: "var(--muted2)", border: "1px solid var(--border)" }}>{c.pill}</div>
-                        </motion.div>
-                    ))}
-                </motion.div>
-            </div>
-        </section>
-    );
-}
-
 // ── IMPACT ──
 function Impact() {
     const ref = useRef(null);
@@ -491,11 +519,6 @@ function Impact() {
 }
 
 // ── TECH STACK ──
-const techItems = [
-    "Python · FastAPI", "React + TypeScript", "TensorFlow / PyTorch", "OpenCV",
-    "MQTT / WebSockets", "AWS / GCP", "PostgreSQL + Redis", "IoT Sensor Network", "Google Maps API"
-];
-
 function TechStack() {
     return (
         <section style={{ background: "var(--surface)" }}>
@@ -503,18 +526,47 @@ function TechStack() {
                 <div style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--muted)", marginBottom: 16, display: "flex", alignItems: "center", gap: 10 }}>
                     <span style={{ width: 18, height: 1, background: "var(--border-mid)", display: "inline-block" }} />Built With
                 </div>
-                <h2 className="fraunces" style={{ fontSize: "1.7rem", fontWeight: 500, lineHeight: 1.15 }}>
-                    Production-grade technology.<br />
-                    <span style={{ color: "var(--muted)", fontWeight: 300, fontSize: "1.3rem", fontFamily: "'DM Sans', sans-serif" }}>Built to scale.</span>
+                <h2 className="fraunces" style={{ fontSize: "clamp(2rem, 4vw, 2.8rem)", fontWeight: 500, lineHeight: 1.15, letterSpacing: "-0.03em" }}>
+                    Built with production-focused technologies
                 </h2>
+                <p style={{ color: "var(--muted)", maxWidth: 780, marginTop: 10, fontSize: "0.93rem", lineHeight: 1.75 }}>
+                    Engineered with a clear split between application development and machine learning so the system stays scalable, reliable, and easy to demo.
+                </p>
                 <Reveal>
-                    <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 40 }}>
-                        {techItems.map((t, i) => (
-                            <motion.div key={i} whileHover={{ borderColor: "var(--border-mid)", color: "var(--ink)" }}
-                                style={{ fontSize: "0.8rem", fontWeight: 500, padding: "8px 16px", borderRadius: 8, background: "var(--card)", border: "1px solid var(--border)", color: "var(--ink2)", display: "flex", alignItems: "center", gap: 7, transition: "all 0.2s" }}>
-                                {t}
-                            </motion.div>
-                        ))}
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginTop: 42 }}>
+                        <motion.div
+                            whileHover={{ y: -3, boxShadow: "0 8px 30px rgba(26,92,246,0.12)" }}
+                            style={{ background: "var(--card)", border: "1px solid var(--blue-border)", borderRadius: 16, padding: "28px 26px", transition: "all 0.25s" }}>
+                            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--blue-soft)", color: "var(--blue)", border: "1px solid var(--blue-border)", borderRadius: 999, padding: "5px 12px", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 16 }}>
+                                Frontend + Backend Development
+                            </div>
+                            <ul style={{ display: "grid", gap: 9, paddingLeft: 18, color: "var(--ink2)", fontSize: "0.9rem", lineHeight: 1.65 }}>
+                                <li><strong>React.js</strong> for UI workflows and interaction</li>
+                                <li>Responsive design for mobile and desktop</li>
+                                <li>Live API integration for ML predictions</li>
+                                <li><strong>Flask</strong> backend server architecture</li>
+                                <li>REST APIs for prediction request handling</li>
+                                <li>Integrated inference response pipeline</li>
+                                <li>Data processing and validation layer</li>
+                            </ul>
+                        </motion.div>
+
+                        <motion.div
+                            whileHover={{ y: -3, boxShadow: "0 8px 30px rgba(180,83,9,0.14)" }}
+                            style={{ background: "var(--card)", border: "1px solid rgba(180,83,9,0.2)", borderRadius: 16, padding: "28px 26px", transition: "all 0.25s" }}>
+                            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "var(--amber-soft)", color: "var(--amber)", border: "1px solid rgba(180,83,9,0.2)", borderRadius: 999, padding: "5px 12px", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 16 }}>
+                                Machine Learning
+                            </div>
+                            <ul style={{ display: "grid", gap: 9, paddingLeft: 18, color: "var(--ink2)", fontSize: "0.9rem", lineHeight: 1.65 }}>
+                                <li><strong>Scikit-learn</strong> for training and evaluation</li>
+                                <li><strong>Random Forest</strong> for accident risk prediction</li>
+                                <li><strong>Pandas</strong> for preprocessing and feature prep</li>
+                                <li>CSV dataset used for supervised training</li>
+                                <li>Jupyter Notebook for experimentation</li>
+                                <li>Joblib for model save/load (.pkl)</li>
+                                <li>Output: Low / Medium / High risk + Probability %</li>
+                            </ul>
+                        </motion.div>
                     </div>
                 </Reveal>
             </div>
@@ -565,7 +617,7 @@ function Footer() {
                 <div style={{ width: 28, height: 28, background: "var(--red)", borderRadius: 7, display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <ShieldIcon />
                 </div>
-                SERS<span style={{ color: "var(--red)" }}>+</span>
+                SERS AI<span style={{ color: "var(--red)" }}>+</span>
             </div>
             <div style={{ fontSize: "0.78rem", color: "var(--muted)" }}>AI Accident Predictor &amp; Emergency Response System</div>
             <div style={{ fontSize: "0.75rem", color: "var(--muted)", fontStyle: "italic" }}>Predict · Prevent · Respond</div>
@@ -586,13 +638,14 @@ export default function SERSPlus() {
             <StatsBar />
             <Problem />
             <Divider />
-            <HowItWorks />
-            <Divider />
             <Solution />
             <Divider />
-            <Features />
-            <Impact />
+            <HowItWorks />
+            <Divider />
+            <CorePredictionEngine />
+            <Divider />
             <TechStack />
+            <Impact />
             <Divider />
             <CTA />
             <Footer />
