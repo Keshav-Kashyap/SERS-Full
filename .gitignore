@@ -1,0 +1,69 @@
+# ------------------------------
+# OS / Editor
+# ------------------------------
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ------------------------------
+# Logs
+# ------------------------------
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ------------------------------
+# Environment / secrets
+# ------------------------------
+.env
+.env.*
+*.local
+
+# ------------------------------
+# Python / Backend
+# ------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments (root + backend + generic)
+.venv/
+venv/
+/venv
+Backend/.venv/
+Backend/venv/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# ------------------------------
+# Node / Frontend
+# ------------------------------
+node_modules/
+Frontend/node_modules/
+Frontend/dist/
+Frontend/dist-ssr/
+
+# Optional package manager caches
+.pnpm-store/
+.npm/
+.yarn/
