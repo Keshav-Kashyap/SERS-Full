@@ -8,7 +8,7 @@ from controllers.prediction_controller import health_check, initialize_model, pr
 app = Flask(__name__)
 CORS(app, resources={
     r"/*": {
-        "origins": "https://sers-full.onrender.com/"
+        "origins": "https://sers-full.onrender.com"
     }
 })
 
